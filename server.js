@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const uuid = require('uuid');
 const mongoose = require('mongoose');
 const { Bookmarks } = require('./models/bookmarkModel');
+const { DATABASE_URL, TOKEN, PORT } = require('./config');
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -133,7 +134,8 @@ app.patch('/bookmark/:id', jsonParser, ( req, res ) => {
   console.log('Updating a bookmark...')
   console.log(req.body);
   let pid = req.params.id;
-  let {id, title, description, url, rating} = req.body;
+  let id = req.body.id;
+  let updatedBookmark = {};
 
   if (!id) {
     res.statusMessage = 'The id from the body is missing';
@@ -145,12 +147,20 @@ app.patch('/bookmark/:id', jsonParser, ( req, res ) => {
     return res.status(409).end()
   }
 
-  let updatedBookmark = {
-    id: String(id),
-    title: String(title),
-    description: String(description),
-    url: String(url),
-    rating: parseInt(rating)
+  if (req.body.title) {
+    updatedBookmark['title'] = req.body.title;
+  }
+
+  if (req.body.description) {
+    updatedBookmark['description'] = req.body.description;
+  }
+
+  if (req.body.url) {
+    updatedBookmark['url'] = req.body.url;
+  }
+
+  if (req.body.rating) {
+    updatedBookmark['rating'] = req.body.rating;
   }
 
   Bookmarks
@@ -168,7 +178,7 @@ app.patch('/bookmark/:id', jsonParser, ( req, res ) => {
     });
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log('Running on port 8000...')
 
   new Promise((resolve, reject) => {
@@ -177,7 +187,7 @@ app.listen(8000, () => {
       useUnifiedTopology: true,
       useCreateIndex: true
     };
-    mongoose.connect('mongodb://localhost/bookmarksdb', settings, (err) => {
+    mongoose.connect(DATABASE_URL, settings, (err) => {
       if (err) {
         return reject(err);
       } else {

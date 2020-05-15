@@ -1,0 +1,23 @@
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+form {
+  padding: 10px;
+}
+
+label {
+  padding: 5px;
+}
+
+input {
+  margin: 5px;
+}
+
+button {
+  margin: 5px;
+}

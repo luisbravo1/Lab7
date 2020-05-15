@@ -69,7 +69,7 @@ const Bookmarks = {
   },
   updateBookmark(id, bookmark) {
     return bookmarksCollection
-      .findOneAndUpdate({id: id}, {$set: bookmark})
+      .findOneAndUpdate({id: id}, {$set: bookmark}, {new: true})
       .then(updatedBookmark => {
         return updatedBookmark;
       })

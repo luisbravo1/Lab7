@@ -1,4 +1,4 @@
-<h1>Web Applications Development. Laboratory 8 – Bookmarks with DB</h1>
+<h1>Web Applications Development. Laboratory 9 – Front-end Integration and Deployment</h1>
 <div>
   <span>npm start</span><br>
   <ul>

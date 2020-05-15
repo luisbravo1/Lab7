@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Bookmarks</title>
+    <link rel="stylesheet" href="./css/index.css" type="text/css">
+  </head> 
+  <body>
+    <h1>Bookmarks API Test</h1>
+    <div class="results"></div>
+
+    <form class="form-add-bookmark">
+      <fieldset>
+        <legend><b>Add a new Bookmark</b></legend>
+        <div>
+          <label for="bookmarkTitle">Title: </label>
+          <input type="text" id="bookmarkTitle">
+        </div>
+        <div>
+          <label for="bookmarkDescription">Description: </label>
+          <input type="text" id="bookmarkDescription">
+        </div>
+        <div>
+          <label for="bookmarkURL">URL: </label>
+          <input type="text" id="bookmarkURL">
+        </div>
+        <div>
+          <label for="bookmarkRating">Rating: </label>
+          <input type="number" id="bookmarkRating">
+        </div>
+          <button type="submit">Add Bookmark</button>
+      </fieldset>
+    </form>
+
+    <form class="form-delete-bookmark">
+      <fieldset>
+        <legend><b>Delete a Bookmark</b></legend>
+        <div>
+          <label for="bookmarkID">ID: </label>
+          <input type="text" id="bookmarkID">
+        </div>
+          <button type="submit">Delete Bookmark</button>
+      </fieldset>
+    </form>
+
+    <form class="form-update-bookmark">
+      <fieldset>
+        <legend><b>Update a Bookmark</b></legend>
+        <div>
+          <label for="bookmarkUpdateID">ID: </label>
+          <input type="text" id="bookmarkUpdateID">
+        </div>
+        <div>
+          <label for="bookmarkUpdateTitle">Title: </label>
+          <input type="text" id="bookmarkUpdateTitle">
+        </div>
+        <div>
+          <label for="bookmarkUpdateDescription">Description: </label>
+          <input type="text" id="bookmarkUpdateDescription">
+        </div>
+        <div>
+          <label for="bookmarkUpdateURL">URL: </label>
+          <input type="text" id="bookmarkUpdateURL">
+        </div>
+        <div>
+          <label for="bookmarkUpdateRating">Rating: </label>
+          <input type="number" id="bookmarkUpdateRating">
+        </div>
+        <button type="submit">Update Bookmark</button>
+      </fieldset>
+    </form>
+
+    <form class="form-getByTitle-bookmark">
+      <fieldset>
+        <legend><b>Get Bookmarks by Title</b></legend>
+        <div>
+          <label for="bookmarkGetByTitle">ID: </label>
+          <input type="text" id="bookmarkGetByTitle">
+        </div>
+          <button type="submit">Get Bookmark</button>
+      </fieldset>
+    </form>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
+
