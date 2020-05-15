@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const uuid = require('uuid');
 const mongoose = require('mongoose');
+const cors = require('./middleware/cors');
 const { Bookmarks } = require('./models/bookmarkModel');
 const { DATABASE_URL, TOKEN, PORT } = require('./config');
 
@@ -11,6 +12,7 @@ const jsonParser = bodyParser.json();
 
 const auth = require('./middleware/auth')
 
+app.use(cors);
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(auth);
